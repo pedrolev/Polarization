@@ -135,6 +135,3 @@ def pol(alpha, sigma0, theta, m, lbdc):
 
 	return pol
 
-lbdcV = .545e-4
-fwhmV = .84e-5
-
