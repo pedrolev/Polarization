@@ -38,6 +38,7 @@ lbd = np.linspace(lmin, lmax, nl)
 lbd *= 1e-8  # angstrom to cm
 lbd2 = (Z**2 * R * 1/4)**-1
 lbd3 = (Z**2 * R * 1/9)**-1
+lbdc = .545e-4 # desired wavelength
 
 # stellar par
 logg = 4.17 # superficial gravity
@@ -186,7 +187,7 @@ def p(lbd, Td, Teff, Rs, r, Ne, theta, m):
 				1 + L(lbd, Td, Rs, r, Ne, theta) / (4 * np.pi * (Rs * Rsol) ** 2 * Fs(lbd, Teff, logg)))
 	return plbd * 100
 
-def pol(alpha, sigma0, theta, m, lbdc):
+def pol(alpha, sigma0, theta, m):
 	'''Return the polarization fraction (%) at a certain wavelength
 
 	alpha: disk viscosity parameter
@@ -201,10 +202,9 @@ def pol(alpha, sigma0, theta, m, lbdc):
 	
 	r = np.linspace(1, 115, 399)
 	Sigma = sigma0 * r**(-m)
-	Sigma2 = np.array([Sigma, Sigma, Sigma, Sigma])
 
 	# electron density
-	Ne = Sigma2 / (2 * mu * mh * np.tan(theta*np.pi/180.) * r * Rs * Rsol)
+	Ne = Sigma / (2 * mu * mh * np.tan(theta*np.pi/180.) * r * Rs * Rsol)
 
 	pol = p(lbdc, Td, Teff, Rs, r, Ne, theta, m)
 
