@@ -6,6 +6,7 @@ This code calculates the continuum polarization percentage produced by electron 
 The model implements McDavid's computationally efficient approximation for hydrogen bound-free and free-free opacity, providing a practical alternative to detailed radiative transfer calculations while maintaining physical accuracy.
 
 Three Opacity Methods can be used:
+
 McDavid LTE - Original LTE approximation from McDavid (2001)
 Bjorkman - Incorporates specific treatments for n=2 and n=3 hydrogen levels
 McDavid NLTE - LTE approximation with NLTE corrections using departure coefficients
