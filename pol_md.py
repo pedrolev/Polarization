@@ -25,7 +25,7 @@ h = 6.626069e-27
 R = 1.0967768e5
 Msol = 1.989e33
 Rsol = 6.955e10
-mi = 0.6
+mu = 0.6
 Z = 1
 G = 6.67430e-8
 
@@ -47,7 +47,7 @@ oblat = 5.11 / 4.5 #oblatness
 
 Rp = Rs / oblat
 Td = .6 * Teff
-H0 = (k * Td / mi / mh * (Rs * Rsol)**3 / G / (M * Msol))**.5
+H0 = (k * Td / mu / mh * (Rs * Rsol)**3 / G / (M * Msol))**.5
 
 # opacity
 def lbdn(n):
@@ -129,7 +129,7 @@ def pol(alpha, sigma0, theta, m, lbdc):
 	Sigma = sigma0 * r**(-m)
 
 	# electron density
-	Ne = Sigma / (2 * mi * mh * np.tan(theta*np.pi/180.) * r * Rs * Rsol)
+	Ne = Sigma / (2 * mu * mh * np.tan(theta*np.pi/180.) * r * Rs * Rsol)
 
 	pol = p(lbdc, Td, Teff, Rs, r, Ne, theta, m)
 
